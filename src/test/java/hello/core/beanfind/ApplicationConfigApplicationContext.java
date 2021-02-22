@@ -31,7 +31,7 @@ public class ApplicationConfigApplicationContext {
     }
 
     @Test
-    @DisplayName("구체 타입으로 조")
+    @DisplayName("구체 타입으로 조회")
     void findBeanByName2(){
         MemberService memberService=ac.getBean("memberService",MemberServiceImpl.class);
        assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
@@ -40,7 +40,7 @@ public class ApplicationConfigApplicationContext {
     @Test
     @DisplayName("빈 이름으로 조회 X")
     void findBeanByNameX(){
-        MemberService xxx=ac.getBean("xxx",MemberService.class);
+//        MemberService xxx=ac.getBean("xxx",MemberService.class);
         assertThrows(NoSuchBeanDefinitionException.class,()->ac.getBean("xxx",MemberService.class));
     }
 }
